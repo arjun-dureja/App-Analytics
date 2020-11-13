@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  background-color: lightgray;
+  width: 600px;
+  height: 600px;
+}
+
+.title {
+  text-align: center;
+  color: darkblue;
+}
+
+.column-titles {
+  display: flex;
+  justify-content: space-evenly;
+  color: slateblue;
+}
+
+.analytics {
+  display: flex;
+  height: 75%;
+}
+
+.app-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 80px;
+}
+
+.img {
+  width: 75px;
+  height: 75px;
+  border-radius: 16px;
+}
+
+.downloads {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 110px;
+}
+
+.ratings {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 120px;
+}
