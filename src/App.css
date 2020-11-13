@@ -6,7 +6,7 @@
 .box {
   background-color: lightgray;
   width: 600px;
-  height: 600px;
+  height: 150px;
 }
 
 .title {
@@ -22,34 +22,40 @@
 
 .analytics {
   display: flex;
-  height: 75%;
+  flex: 1;
+  background-color: lightgray;
 }
 
 .app-icons {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding-left: 80px;
+  padding-left: 50px;
 }
 
 .img {
   width: 75px;
   height: 75px;
   border-radius: 16px;
+  margin: 25px;
+}
+
+.h3 {
+  margin: 45px;
 }
 
 .downloads {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding-left: 110px;
+  padding-left: 50px;
 }
 
 .ratings {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding-left: 120px;
+  padding-left: 45px;
 }
 
 .loader {
