@@ -9,7 +9,8 @@ export default class Analytics extends React.Component {
     }
 
     async componentDidMount() {
-        const iconDownloadsURL = "https://api.appfigures.com/v2/reports/sales/?group_by=products&client_key=1be40558c1de4197b1629674dab0fe62";
+        const proxy = "https://hungry-elion-c2a507.netlify.app/"
+        const iconDownloadsURL = proxy + "https://api.appfigures.com/v2/reports/sales/?group_by=products&client_key=1be40558c1de4197b1629674dab0fe62";
         const response = await fetch(iconDownloadsURL, {
             method: 'post',
             headers: new Headers({
@@ -28,7 +29,7 @@ export default class Analytics extends React.Component {
             }
         }
 
-        const ratingsURL = "https://api.appfigures.com/v2/reports/ratings/?group_by=product&client_key=1be40558c1de4197b1629674dab0fe62";
+        const ratingsURL = proxy + "http://localhost:3000/https://api.appfigures.com/v2/reports/ratings/?group_by=product&client_key=1be40558c1de4197b1629674dab0fe62";
         const ratingsResponse = await fetch(ratingsURL, {
             method: 'post',
             headers: new Headers({
