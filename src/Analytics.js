@@ -17,7 +17,7 @@ export default class Analytics extends React.Component {
             }),
         });
         const data = await response.json();
-        for (var key in data) {
+        for (let key in data) {
             if (data[key]['product']['icon'] !== "Unknown") {
                 this.setState(prevState => ({
                     icons: [...prevState.icons, data[key]['product']['icon']],
@@ -34,7 +34,7 @@ export default class Analytics extends React.Component {
             }),
         });
         const ratingsData = await ratingsResponse.json();
-        for (var app in ratingsData) {
+        for (let app in ratingsData) {
             this.setState(prev => ({
                 ratings: [...prev.ratings, ratingsData[app]['average']]
             }))
@@ -55,18 +55,18 @@ export default class Analytics extends React.Component {
                     </div>
                     <div className="analytics">
                         <div className="app-icons">
-                            {this.state.icons.map( (icon) =>
-                                <img className="img" src={icon} alt="Icon" />
+                            {this.state.icons.map((icon, i) =>
+                                <img className="img" key={i} src={icon} alt="Icon" />
                             )}
                         </div>
                         <div className="downloads">
-                            {this.state.downloads.map( (count) =>
-                                <h3>{count}</h3>
+                            {this.state.downloads.map((count, i) =>
+                                <h3 key={i}>{count}</h3>
                             )}
                         </div>
                         <div className="ratings">
-                            {this.state.ratings.map( (rating) =>
-                                <h3>{rating} Stars</h3>
+                            {this.state.ratings.map((rating, i) =>
+                                <h3 key={i}>{rating} Stars</h3>
                             )}
                         </div>
                     </div>
