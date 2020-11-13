@@ -1,5 +1,6 @@
 import React from 'react'
 import Loader from 'react-loader-spinner'
+import { iconURL, ratingURL, authKey } from './constants'
 
 export default class Analytics extends React.Component {
 
@@ -12,11 +13,11 @@ export default class Analytics extends React.Component {
 
     async componentDidMount() {
         const proxy = "https://cors-anywhere.herokuapp.com/";
-        const iconDownloadsURL = proxy + "https://api.appfigures.com/v2/reports/sales/?group_by=products&client_key=1be40558c1de4197b1629674dab0fe62";
+        const iconDownloadsURL = proxy + iconURL;
         const response = await fetch(iconDownloadsURL, {
             method: 'post',
             headers: new Headers({
-                'Authorization': 'Basic YXJqdW4uZHVyZWphMTAwMEBnbWFpbC5jb206YXJqdW44NzM='
+                'Authorization': 'Basic ' + authKey
             })
         });
         const data = await response.json();
@@ -29,20 +30,26 @@ export default class Analytics extends React.Component {
             }
         }
 
-        const ratingsURL = proxy + "https://api.appfigures.com/v2/reports/ratings/?group_by=product&client_key=1be40558c1de4197b1629674dab0fe62";
+        const ratingsURL = proxy + ratingURL;
         const ratingsResponse = await fetch(ratingsURL, {
             method: 'post',
             headers: new Headers({
-                'Authorization': 'Basic YXJqdW4uZHVyZWphMTAwMEBnbWFpbC5jb206YXJqdW44NzM='
+                'Authorization': 'Basic ' + authKey
             })
         });
         const ratingsData = await ratingsResponse.json();
         for (let app in ratingsData) {
             this.setState(prev => ({
                 ratings: [...prev.ratings, ratingsData[app]['average']],
-                loading: false
             }))
         }
+
+        this.setState({
+            icons: this.state.icons.reverse(),
+            downloads: this.state.downloads.reverse(),
+            ratings: this.state.ratings.reverse(),
+            loading: false
+        });
     }
 
     render() {
@@ -53,7 +60,7 @@ export default class Analytics extends React.Component {
                             <Loader
                                 className="loader"
                                 type="Oval"
-                                color="#00BFFF"
+                                color="#B969F5"
                                 height={80}
                                 width={80}
                                 timeout={5000} //5 secs

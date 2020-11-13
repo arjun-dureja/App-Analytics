@@ -4,26 +4,26 @@
 }
 
 .box {
-  background-color: lightgray;
+  background-color: #343645;
   width: 600px;
   height: 150px;
 }
 
 .title {
   text-align: center;
-  color: darkblue;
+  color: #EBB365;
 }
 
 .column-titles {
   display: flex;
   justify-content: space-evenly;
-  color: slateblue;
+  color: #B969F5;
 }
 
 .analytics {
   display: flex;
   flex: 1;
-  background-color: lightgray;
+  background-color: #343645;
 }
 
 .app-icons {
@@ -38,24 +38,28 @@
   height: 75px;
   border-radius: 16px;
   margin: 25px;
+  box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.6);
 }
 
 .h3 {
   margin: 45px;
+  color: white;
+  font-size: 24px;
+  text-align: center;
 }
 
 .downloads {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding-left: 50px;
+  padding-left: 35px;
 }
 
 .ratings {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding-left: 45px;
+  padding-left: 35px;
 }
 
 .loader {
