@@ -2,7 +2,6 @@
   "name": "app-analytics",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://hungry-elion-c2a507.netlify.app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.2",

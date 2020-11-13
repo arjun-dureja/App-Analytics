@@ -14,7 +14,9 @@ export default class Analytics extends React.Component {
             method: 'post',
             headers: new Headers({
                 'Authorization': 'Basic YXJqdW4uZHVyZWphMTAwMEBnbWFpbC5jb206YXJqdW44NzM=',
+                'Access-Control-Allow-Origin': '*'
             }),
+            mode: 'cors'
         });
         const data = await response.json();
         for (let key in data) {
@@ -31,7 +33,9 @@ export default class Analytics extends React.Component {
             method: 'post',
             headers: new Headers({
                 'Authorization': 'Basic YXJqdW4uZHVyZWphMTAwMEBnbWFpbC5jb206YXJqdW44NzM=',
+                'Access-Control-Allow-Origin': '*'
             }),
+            mode: 'cors'
         });
         const ratingsData = await ratingsResponse.json();
         for (let app in ratingsData) {
