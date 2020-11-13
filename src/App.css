@@ -51,3 +51,8 @@
   justify-content: space-evenly;
   padding-left: 120px;
 }
+
+.loader {
+  text-align: center;
+  padding-top: 50px;
+}
