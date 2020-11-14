@@ -9,6 +9,7 @@
   width: 100%;
   height: 100%;
   overflow-y: auto;
+  padding-top: 15px;
 }
 
 .title {
@@ -23,6 +24,7 @@
   color: #B969F5;
   font-size: 18px;
   animation: text 1000ms;
+  padding-top: 5px;
 }
 
 .analytics {
@@ -37,6 +39,7 @@
 @keyframes text {
   0% {
     transform: translate(0px, 150px);
+    opacity: 0;
   }
 }
 
