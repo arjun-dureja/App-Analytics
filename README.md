@@ -1,3 +1,3 @@
-Webpage: https://appanalytics.netlify.app/
+**Webpage:** https://appanalytics.netlify.app/
 
-Built with React & [AppFigures](https://docs.appfigures.com/) API
+Built with React & [Appfigures](https://docs.appfigures.com/) API
