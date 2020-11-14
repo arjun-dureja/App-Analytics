@@ -14,14 +14,14 @@
 
 .title {
   text-align: center;
-  color: #EBB365;
+  color: #B969F5;
   animation: text 1000ms;
 }
 
 .column-titles {
   display: flex;
   justify-content: space-evenly;
-  color: #B969F5;
+  color: #668CF6;
   font-size: 18px;
   animation: text 1000ms;
   padding-top: 5px;
@@ -60,7 +60,7 @@
 
 .h3 {
   margin: 45px;
-  color: white;
+  color: #F8F9FF;
   font-size: 24px;
   text-align: center;
 }
