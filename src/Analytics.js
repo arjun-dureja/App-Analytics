@@ -1,6 +1,6 @@
 import React from 'react'
 import Loader from 'react-loader-spinner'
-import { iconURL, ratingURL, authKey } from './constants'
+import { iconURL, ratingURL, linkURL, authKey } from './constants'
 
 export default class Analytics extends React.Component {
 
@@ -9,6 +9,7 @@ export default class Analytics extends React.Component {
         icons: [],
         downloads: [],
         ratings: [],
+        links: []
     }
 
     async componentDidMount() {
@@ -44,10 +45,27 @@ export default class Analytics extends React.Component {
             }))
         }
 
+        const linksURL = proxy + linkURL;
+        const linksResponse = await fetch(linksURL, {
+            method: 'get',
+            headers: new Headers({
+                'Authorization': 'Basic ' + authKey
+            })
+        });
+        const linksData = await linksResponse.json()
+        for (let link in linksData) {
+            if (linksData[link]['icon'] !== 'Unknown') {
+                this.setState(prevLink => ({
+                        links: [...prevLink.links, linksData[link]['view_url']]
+                }))
+            }
+        }
+
         this.setState({
             icons: this.state.icons.reverse(),
             downloads: this.state.downloads.reverse(),
             ratings: this.state.ratings.reverse(),
+            links: this.state.links.reverse(),
             loading: false
         });
     }
@@ -77,8 +95,10 @@ export default class Analytics extends React.Component {
                             </div>
                             <div className="analytics">
                                 <div className="app-icons">
-                                    {this.state.icons.map((icon, i) =>
-                                        <img className="img" key={i} src={icon} alt="Icon" />,
+                                    {this.state.links.map((link, i) =>
+                                        <a className="link" key={i} href={link} target="_blank" rel="noreferrer">
+                                            <img className="img" key={i} src={this.state.icons[i]} alt="Icon" />
+                                        </a>
                                     )}
                                 </div>
                                 <div className="downloads">

@@ -55,8 +55,11 @@
   width: 75px;
   height: 75px;
   border-radius: 16px;
-  margin: 25px;
   box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.6);
+}
+
+.link {
+  margin: 25px;
 }
 
 .h3 {
