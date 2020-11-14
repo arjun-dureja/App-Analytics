@@ -5,6 +5,7 @@
 
 .box {
   background-color: #343645;
+  position: fixed;
   width: 600px;
   height: 150px;
 }
@@ -22,6 +23,8 @@
 
 .analytics {
   display: flex;
+  position: absolute;
+  width: 100%;
   justify-content: space-evenly;
   background-color: #343645;
 }
