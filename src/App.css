@@ -22,7 +22,7 @@
 
 .analytics {
   display: flex;
-  flex: 1;
+  justify-content: space-evenly;
   background-color: #343645;
 }
 
@@ -30,7 +30,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding-left: 50px;
+  padding-left: 10px;
 }
 
 .img {
@@ -52,14 +52,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding-left: 35px;
+  //padding-left: 35px;
 }
 
 .ratings {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding-left: 35px;
+  //padding-left: 35px;
 }
 
 .loader {
