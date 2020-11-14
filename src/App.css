@@ -6,8 +6,8 @@
 .box {
   background-color: #343645;
   position: fixed;
-  width: 600px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
 }
 
 .title {
@@ -55,14 +55,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  //padding-left: 35px;
 }
 
 .ratings {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  //padding-left: 35px;
 }
 
 .loader {
