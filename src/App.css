@@ -15,6 +15,7 @@
 .title {
   text-align: center;
   color: #B969F5;
+  font-size: 18px;
   animation: text 1000ms;
 }
 
