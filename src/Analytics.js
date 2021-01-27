@@ -63,7 +63,7 @@ export default class Analytics extends React.Component {
             color="#be72fa"
             height={80}
             width={80}
-            timeout={5000} //5 secs
+            timeout={5000} //5 seconds
           />
         ) : (
           <div className="box">
