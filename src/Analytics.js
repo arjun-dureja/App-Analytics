@@ -11,8 +11,7 @@ export default class Analytics extends React.Component {
   };
 
   async componentDidMount() {
-    const proxy = "https://cors-anywhere.herokuapp.com/";
-    const iconDownloadsURL = proxy + iconURL;
+    const iconDownloadsURL = iconURL;
     const response = await fetch(iconDownloadsURL, {
       method: "post",
       headers: new Headers({
@@ -29,7 +28,7 @@ export default class Analytics extends React.Component {
       }
     }
 
-    const linksURL = proxy + linkURL;
+    const linksURL = linkURL;
     const linksResponse = await fetch(linksURL, {
       method: "get",
       headers: new Headers({
