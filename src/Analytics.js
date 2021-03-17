@@ -16,6 +16,7 @@ export default class Analytics extends React.Component {
       method: "post",
       headers: new Headers({
         Authorization: "Basic " + authKey,
+        "Access-Control-Allow-Origin": "*",
       }),
     });
     const data = await response.json();
@@ -33,6 +34,7 @@ export default class Analytics extends React.Component {
       method: "get",
       headers: new Headers({
         Authorization: "Basic " + authKey,
+        "Access-Control-Allow-Origin": "*",
       }),
     });
     const linksData = await linksResponse.json();
