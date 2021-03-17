@@ -11,12 +11,12 @@ export default class Analytics extends React.Component {
   };
 
   async componentDidMount() {
-    const iconDownloadsURL = iconURL;
+    const proxy = "https://fierce-ridge-83390.herokuapp.com/";
+    const iconDownloadsURL = proxy + iconURL;
     const response = await fetch(iconDownloadsURL, {
       method: "post",
       headers: new Headers({
         Authorization: "Basic " + authKey,
-        "Access-Control-Allow-Origin": "*",
       }),
     });
     const data = await response.json();
@@ -29,12 +29,11 @@ export default class Analytics extends React.Component {
       }
     }
 
-    const linksURL = linkURL;
+    const linksURL = proxy + linkURL;
     const linksResponse = await fetch(linksURL, {
       method: "get",
       headers: new Headers({
         Authorization: "Basic " + authKey,
-        "Access-Control-Allow-Origin": "*",
       }),
     });
     const linksData = await linksResponse.json();
