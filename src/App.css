@@ -6,7 +6,7 @@
 .box {
   background-color: #343645;
   position: fixed;
-  width: 75%;
+  width: 80%;
   height: 100%;
   overflow-y: auto;
   padding-top: 15px;
@@ -19,11 +19,9 @@
   animation: text 1000ms;
 }
 
-.column-titles {
-  display: flex;
-  justify-content: space-evenly;
+h2 {
   color: #668cf6;
-  font-size: 18px;
+  font-size: 26px;
   animation: text 1000ms;
   padding-top: 5px;
 }
@@ -47,8 +45,7 @@
 .app-icons {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  padding-left: 10px;
+  align-items: center;
 }
 
 .img {
@@ -66,7 +63,7 @@
   margin: 25px;
 }
 
-.h3 {
+h3 {
   margin: 45px;
   color: #f8f9ff;
   font-size: 24px;
@@ -76,8 +73,8 @@
 .downloads {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  padding-right: 40px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .loader {

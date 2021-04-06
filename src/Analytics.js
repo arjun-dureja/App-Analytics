@@ -1,6 +1,6 @@
-import React from "react";
-import Loader from "react-loader-spinner";
-import { iconURL, linkURL, authKey } from "./constants";
+import React from 'react';
+import Loader from 'react-loader-spinner';
+import { iconURL, linkURL, authKey } from './constants';
 
 export default class Analytics extends React.Component {
   state = {
@@ -11,36 +11,36 @@ export default class Analytics extends React.Component {
   };
 
   async componentDidMount() {
-    const proxy = "https://fierce-ridge-83390.herokuapp.com/";
+    const proxy = 'https://fierce-ridge-83390.herokuapp.com/';
     const iconDownloadsURL = proxy + iconURL;
     const response = await fetch(iconDownloadsURL, {
-      method: "post",
+      method: 'post',
       headers: new Headers({
-        Authorization: "Basic " + authKey,
+        Authorization: 'Basic ' + authKey,
       }),
     });
     const data = await response.json();
     for (let key in data) {
-      if (data[key]["product"]["icon"] !== "Unknown") {
+      if (data[key]['product']['icon'] !== 'Unknown') {
         this.setState((prevState) => ({
-          icons: [...prevState.icons, data[key]["product"]["icon"]],
-          downloads: [...prevState.downloads, data[key]["downloads"]],
+          icons: [...prevState.icons, data[key]['product']['icon']],
+          downloads: [...prevState.downloads, data[key]['downloads']],
         }));
       }
     }
 
     const linksURL = proxy + linkURL;
     const linksResponse = await fetch(linksURL, {
-      method: "get",
+      method: 'get',
       headers: new Headers({
-        Authorization: "Basic " + authKey,
+        Authorization: 'Basic ' + authKey,
       }),
     });
     const linksData = await linksResponse.json();
     for (let link in linksData) {
-      if (linksData[link]["icon"] !== "Unknown") {
+      if (linksData[link]['icon'] !== 'Unknown') {
         this.setState((prevLink) => ({
-          links: [...prevLink.links, linksData[link]["view_url"]],
+          links: [...prevLink.links, linksData[link]['view_url']],
         }));
       }
     }
@@ -55,47 +55,45 @@ export default class Analytics extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className='container'>
         {this.state.loading ? (
           <Loader
-            className="loader"
-            type="Oval"
-            color="#be72fa"
+            className='loader'
+            type='Oval'
+            color='#be72fa'
             height={80}
             width={80}
             timeout={5000} //5 seconds
           />
         ) : (
-          <div className="box">
-            <div className="title">
+          <div className='box'>
+            <div className='title'>
               <h1>App Analytics</h1>
             </div>
-            <div className="column-titles">
-              <h2>App</h2>
-              <h2>Downloads</h2>
-            </div>
-            <div className="analytics">
-              <div className="app-icons">
+            <div className='analytics'>
+              <div className='app-icons'>
+                <h2>App</h2>
                 {this.state.links.map((link, i) => (
                   <a
-                    className="link"
+                    className='link'
                     key={i}
                     href={link}
-                    target="_blank"
-                    rel="noreferrer"
+                    target='_blank'
+                    rel='noreferrer'
                   >
                     <img
-                      className="img"
+                      className='img'
                       key={i}
                       src={this.state.icons[i]}
-                      alt="Icon"
+                      alt='Icon'
                     />
                   </a>
                 ))}
               </div>
-              <div className="downloads">
+              <div className='downloads'>
+                <h2>Downloads</h2>
                 {this.state.downloads.map((count, i) => (
-                  <h3 className="h3" key={i}>
+                  <h3 className='h3' key={i}>
                     {count}
                   </h3>
                 ))}
