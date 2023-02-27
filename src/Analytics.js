@@ -1,13 +1,13 @@
 import React from 'react';
 import Loader from 'react-loader-spinner';
-import { iconURL, linkURL, authKey } from './constants';
+import { iconURL, linkURL, authKey, clientKey } from './constants';
 
 const fetchJSON = async (url) => {
-  const response = await fetch(url, {
-    method: 'post',
+  const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(url);
+  const response = await fetch(proxyUrl, {
+    method: 'get',
     headers: new Headers({
       Authorization: 'Basic ' + authKey,
-      'Access-Control-Allow-Origin': '*',
     }),
   });
   const data = await response.json();
@@ -24,6 +24,8 @@ export default class Analytics extends React.Component {
 
   async componentDidMount() {
     const iconData = await fetchJSON(iconURL);
+    const linksData = await fetchJSON(linkURL);
+
     for (let key in iconData) {
       if (iconData[key]['product']['icon'] !== 'Unknown') {
         this.setState((prevState) => ({
@@ -33,7 +35,6 @@ export default class Analytics extends React.Component {
       }
     }
 
-    const linksData = await fetchJSON(linkURL);
     for (let link in linksData) {
       if (linksData[link]['icon'] !== 'Unknown') {
         this.setState((prevLink) => ({
