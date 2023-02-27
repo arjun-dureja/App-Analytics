@@ -1,6 +1,6 @@
 import React from 'react';
 import Loader from 'react-loader-spinner';
-import { iconURL, linkURL, authKey, clientKey } from './constants';
+import { iconURL, linkURL, authKey } from './constants';
 
 const fetchJSON = async (url) => {
   const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(url);
