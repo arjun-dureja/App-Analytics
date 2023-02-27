@@ -2,6 +2,18 @@ import React from 'react';
 import Loader from 'react-loader-spinner';
 import { iconURL, linkURL, authKey } from './constants';
 
+const fetchJSON = async (url) => {
+  const response = await fetch(url, {
+    method: 'post',
+    headers: new Headers({
+      Authorization: 'Basic ' + authKey,
+      'Access-Control-Allow-Origin': '*',
+    }),
+  });
+  const data = await response.json();
+  return data;
+};
+
 export default class Analytics extends React.Component {
   state = {
     loading: true,
@@ -11,32 +23,17 @@ export default class Analytics extends React.Component {
   };
 
   async componentDidMount() {
-    const proxy = 'https://fierce-ridge-83390.herokuapp.com/';
-    const iconDownloadsURL = proxy + iconURL;
-    const response = await fetch(iconDownloadsURL, {
-      method: 'post',
-      headers: new Headers({
-        Authorization: 'Basic ' + authKey,
-      }),
-    });
-    const data = await response.json();
-    for (let key in data) {
-      if (data[key]['product']['icon'] !== 'Unknown') {
+    const iconData = await fetchJSON(iconURL);
+    for (let key in iconData) {
+      if (iconData[key]['product']['icon'] !== 'Unknown') {
         this.setState((prevState) => ({
-          icons: [...prevState.icons, data[key]['product']['icon']],
-          downloads: [...prevState.downloads, data[key]['downloads']],
+          icons: [...prevState.icons, iconData[key]['product']['icon']],
+          downloads: [...prevState.downloads, iconData[key]['downloads']],
         }));
       }
     }
 
-    const linksURL = proxy + linkURL;
-    const linksResponse = await fetch(linksURL, {
-      method: 'get',
-      headers: new Headers({
-        Authorization: 'Basic ' + authKey,
-      }),
-    });
-    const linksData = await linksResponse.json();
+    const linksData = await fetchJSON(linkURL);
     for (let link in linksData) {
       if (linksData[link]['icon'] !== 'Unknown') {
         this.setState((prevLink) => ({
