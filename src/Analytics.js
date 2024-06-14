@@ -1,18 +1,18 @@
 import React from 'react';
 import Loader from 'react-loader-spinner';
-import { iconURL, linkURL, authKey } from './constants';
 
-const fetchJSON = async (url) => {
-  const proxyUrl = 'https://thingproxy.freeboard.io/fetch/' + encodeURIComponent(url);
-  const response = await fetch(proxyUrl, {
-    method: 'get',
-    headers: new Headers({
-      Authorization: 'Bearer ' + authKey,
-    }),
-  });
+const fetchIcons = async () => {
+  const response = await fetch('/.netlify/functions/icons')
   const data = await response.json();
-  return data;
+  return data.body;
 };
+
+const fetchLinks = async () => {
+  const response = await fetch('/.netlify/functions/links')
+  const data = await response.json();
+  return data.body;
+};
+
 
 export default class Analytics extends React.Component {
   state = {
@@ -23,8 +23,8 @@ export default class Analytics extends React.Component {
   };
 
   async componentDidMount() {
-    const iconData = await fetchJSON(iconURL);
-    const linksData = await fetchJSON(linkURL);
+    const iconData = await fetchIcons();
+    const linksData = await fetchLinks();
 
     for (let key in iconData) {
       if (iconData[key]['product']['icon'] !== 'Unknown') {
