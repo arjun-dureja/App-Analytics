@@ -4,13 +4,13 @@ import Loader from 'react-loader-spinner';
 const fetchIcons = async () => {
   const response = await fetch('/.netlify/functions/icons')
   const data = await response.json();
-  return data.body;
+  return data;
 };
 
 const fetchLinks = async () => {
   const response = await fetch('/.netlify/functions/links')
   const data = await response.json();
-  return data.body;
+  return data;
 };
 
 
