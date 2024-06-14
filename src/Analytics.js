@@ -7,7 +7,7 @@ const fetchJSON = async (url) => {
   const response = await fetch(proxyUrl, {
     method: 'get',
     headers: new Headers({
-      Authorization: 'Basic ' + authKey,
+      Authorization: 'Bearer ' + authKey,
     }),
   });
   const data = await response.json();
