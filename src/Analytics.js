@@ -3,7 +3,7 @@ import Loader from 'react-loader-spinner';
 import { iconURL, linkURL, authKey } from './constants';
 
 const fetchJSON = async (url) => {
-  const proxyUrl = 'https://crossorigin.me/' + encodeURIComponent(url);
+  const proxyUrl = 'https://thingproxy.freeboard.io/fetch/' + encodeURIComponent(url);
   const response = await fetch(proxyUrl, {
     method: 'get',
     headers: new Headers({
