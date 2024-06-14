@@ -5,7 +5,7 @@ const token = 'pat_VTTL34Ues7cT6h2437DO4lE0kxmIhQbo';
 // Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
 const handler = async (event) => {
   try {
-    const response = await fetch(iconUrl, {
+    const response = await fetch(iconURL, {
       method: 'get',
       headers: new Headers({
         Authorization: 'Bearer ' + token,
