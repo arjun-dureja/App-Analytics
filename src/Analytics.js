@@ -13,7 +13,6 @@ const fetchLinks = async () => {
   return data;
 };
 
-
 export default class Analytics extends React.Component {
   state = {
     loading: true,

@@ -1,18 +1,11 @@
+const { fetchData } = require("../utils/api");
+
 const linkURL =
   'https://api.appfigures.com/v2/products/mine/?meta=true&client_key=1be40558c1de4197b1629674dab0fe62';
-const token = 'pat_VTTL34Ues7cT6h2437DO4lE0kxmIhQbo';
 
-// Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
-const handler = async (event) => {
+const handler = async () => {
   try {
-    const response = await fetch(linkURL, {
-      method: 'get',
-      headers: new Headers({
-        Authorization: 'Bearer ' + token,
-      }),
-    });
-    const data = await response.json();
-    
+    const data = fetchData(linkURL)
     return {
       statusCode: 200,
       body: JSON.stringify(data),
