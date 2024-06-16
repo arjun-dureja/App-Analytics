@@ -5,7 +5,7 @@ const linkURL =
 
 const handler = async () => {
   try {
-    const data = fetchData(linkURL)
+    const data = await fetchData(linkURL)
     return {
       statusCode: 200,
       body: JSON.stringify(data),
